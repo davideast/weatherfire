@@ -15,7 +15,6 @@
  * limitations under the License.
  */
 
-import { getApp } from './cities';
+import { getApp } from './cities.js';
 
-console.log(getApp);
-
+console.log(getApp());

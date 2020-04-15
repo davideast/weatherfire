@@ -16,7 +16,7 @@
  */
 
 import firebase from 'firebase';
-import { config } from './config';
+import config from 'weatherfire/config';
 
 const getApp = (name = '[DEFAULT]') => {
   let app = firebase.apps.find(app => app.name === name);
@@ -26,7 +26,7 @@ const getApp = (name = '[DEFAULT]') => {
   return app;
 };
 
-const cityCol = () => getApp().firestore().collection('cities')
+const cityCol = () => getApp().firestore().collection('cities');
 const getCities = () => cityCol.get();
 const getCity = name => cityCol().doc(name).get(); 
 

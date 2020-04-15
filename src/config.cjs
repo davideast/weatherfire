@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-export const config = {
+module.exports = {
   apiKey: "AIzaSyAuIpeBBs2WBBYtrqvlBpoaL2Ro6tHpAMI",
   authDomain: "weather-fire.firebaseapp.com",
   databaseURL: "https://weather-fire.firebaseio.com",
