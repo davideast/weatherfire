@@ -18,22 +18,16 @@
 import firebase from 'firebase';
 import { config } from './config';
 
-const getApp = () => {
-  let defaultApp = firebase.apps.find(app => app.name === '[DEFAULT]');
-  if(!defaultApp) {
-    defaultApp = firebase.initializeApp(config);
+const getApp = (name = '[DEFAULT]') => {
+  let app = firebase.apps.find(app => app.name === name);
+  if(!app) {
+    app = firebase.initializeApp(config);
   }
-  return defaultApp;
+  return app;
 };
 
-const cityCol = () => {
-  return getApp().firestore().collection('cities');
-}
-
-const getCities = () => {
-  return cityCol.get()
-}
-
+const cityCol = () => getApp().firestore().collection('cities')
+const getCities = () => cityCol.get();
 const getCity = name => cityCol().doc(name).get(); 
 
 export {
